@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Letting
+from lettings.models import Letting
 
 """
 Aenean leo magna, vestibulum et tincidunt fermentum, consectetur quis velit.
@@ -10,7 +10,6 @@ luctus et ultrices posuere cubilia curae; Cras eget scelerisque
 
 
 def index(request):
-    print("salut")
     lettings_list = Letting.objects.all()
     context = {'lettings_list': lettings_list}
     return render(request, 'lettings/index.html', context)
