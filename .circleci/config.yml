@@ -7,7 +7,10 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: cimg/python:3.11.2
+      - image: meez25/lettings:lettings
+        auth:
+          username: meez25
+          password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
       - run:
@@ -32,4 +35,5 @@ jobs:
 workflows:
   workflow:
     jobs:
-      - build
+      - build:
+          context: auth
